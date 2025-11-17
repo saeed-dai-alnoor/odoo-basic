@@ -1,0 +1,7 @@
+<odoo>
+    <template id="assets_backend_inherit" inherit_id="web._assets_backend" name="Custom Tree CSS">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/css" href="/app_one/static/src/css/tree_style.css"/>
+        </xpath>
+    </template>
+</odoo>

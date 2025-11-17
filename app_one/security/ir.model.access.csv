@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_tree_plant_user,access_tree_plant_user,model_tree_plant,base.group_user,1,1,1,1
+access_tree_note_user,access_tree_note_user,model_tree_note,base.group_user,1,1,1,1

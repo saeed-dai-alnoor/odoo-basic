@@ -1,0 +1,98 @@
+<odoo>
+
+    <!-- Tree view for Tree Plant -->
+    <record id="view_tree_plant_tree" model="ir.ui.view">
+        <field name="name">tree.plant.tree</field>
+        <field name="model">tree.plant</field>
+        <field name="arch" type="xml">
+            <tree string="Tree Plants" class="my-tree-style">
+                <field name="name"/>
+                <field name="type"/>
+                <field name="category"/>
+                <field name="region"/>
+                <field name="governorate"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form view for Tree Plant -->
+    <record id="view_tree_plant_form" model="ir.ui.view">
+        <field name="name">tree.plant.form</field>
+        <field name="model">tree.plant</field>
+        <field name="arch" type="xml">
+            <form string="Tree Plant">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="type"/>
+                        <field name="category"/>
+                        <field name="region"/>
+                        <field name="governorate"/>
+                    </group>
+                    <notebook>
+                        <page string="Notes">
+                            <field name="notes_ids">
+                                <tree editable="bottom">
+                                    <field name="title"/>
+                                    <field name="description"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_tree_plant" model="ir.actions.act_window">
+        <field name="name">Tree Plants</field>
+        <field name="res_model">tree.plant</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_tree_root" name="Trees"/>
+    <menuitem id="menu_tree_plant" name="Tree Plants" parent="menu_tree_root" action="action_tree_plant"/>
+
+    <!-- =============================== -->
+    <!-- Add the note model views here -->
+    <!-- =============================== -->
+
+    <record id="view_tree_note_tree" model="ir.ui.view">
+        <field name="name">tree.note.tree</field>
+        <field name="model">tree.note</field>
+        <field name="arch" type="xml">
+            <tree string="Tree Notes">
+                <field name="plant_id"/>
+                <field name="title"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_tree_note_form" model="ir.ui.view">
+        <field name="name">tree.note.form</field>
+        <field name="model">tree.note</field>
+        <field name="arch" type="xml">
+            <form string="Tree Note">
+                <sheet>
+                    <group>
+                        <field name="plant_id"/>
+                        <field name="title"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_tree_note" model="ir.actions.act_window">
+        <field name="name">Tree Notes</field>
+        <field name="res_model">tree.note</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_tree_note" name="Tree Notes" parent="menu_tree_root" action="action_tree_note"/>
+
+</odoo>

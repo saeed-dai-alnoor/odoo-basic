@@ -1,0 +1,31 @@
+<odoo>
+  <record id="view_order_form_inherit_ceo" model="ir.ui.view">
+    <field name="name">sale.order.form.ceo.approval</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_order_form"/>
+    <field name="arch" type="xml">
+
+      <!-- أزرار الموافقة / الرفض في الهيدر -->
+      <xpath expr="//header" position="inside">
+        <button name="action_ceo_approve" string="CEO Approve" type="object"
+                class="oe_highlight"
+                groups="sale_ceo_approval.group_ceo"/>
+        <button name="action_ceo_reject" string="Reject" type="object"
+                class="oe_button_secondary"
+                groups="sale_ceo_approval.group_ceo"/>
+      </xpath>
+
+      <!-- تبويب لمتابعة حالة الموافقة -->
+      <xpath expr="//sheet/notebook" position="inside">
+        <page string="CEO Approval">
+          <group>
+            <field name="ceo_approval_state" readonly="1"/>
+            <field name="ceo_request_uid" readonly="1"/>
+            <field name="ceo_approval_date" readonly="1"/>
+          </group>
+        </page>
+      </xpath>
+
+    </field>
+  </record>
+</odoo>

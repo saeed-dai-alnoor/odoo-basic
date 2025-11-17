@@ -1,0 +1,40 @@
+<odoo>
+    <record id="view_product_tree" model="ir.ui.view">
+        <field name="name">product.tree</field>
+        <field name="model">my_module.product</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="price"/>
+                <field name="is_available"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_product_form" model="ir.ui.view">
+        <field name="name">product.form</field>
+        <field name="model">my_module.product</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="price"/>
+                        <field name="is_available"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action لتوصيل الموديل بالواجهة -->
+    <record id="action_product" model="ir.actions.act_window">
+        <field name="name">Products</field>
+        <field name="res_model">my_module.product</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Item في القائمة الرئيسية -->
+    <menuitem id="menu_my_module_root" name="My Module"/>
+    <menuitem id="menu_products" name="Products" parent="menu_my_module_root" action="action_product"/>
+</odoo>
