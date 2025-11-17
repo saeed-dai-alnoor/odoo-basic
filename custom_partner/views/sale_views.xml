@@ -1,6 +1,5 @@
 <odoo>
-
-    <!-- منع إنشاء عميل جديد فقط داخل sale.order -->
+    <!-- منع إنشاء عملاء جدد داخل Sale Order -->
     <record id="view_sale_order_partner_no_create" model="ir.ui.view">
         <field name="name">sale.order.form.no.create.partner</field>
         <field name="model">sale.order</field>
@@ -12,7 +11,7 @@
         </field>
     </record>
 
-    <!-- منع إنشاء منتج داخل order lines -->
+    <!-- منع إنشاء منتجات جديدة داخل order lines -->
     <record id="view_sale_order_line_no_create_product" model="ir.ui.view">
         <field name="name">sale.order.line.no.create.product</field>
         <field name="model">sale.order</field>
@@ -23,5 +22,4 @@
             </xpath>
         </field>
     </record>
-
 </odoo>
