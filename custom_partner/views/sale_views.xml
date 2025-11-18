@@ -1,25 +1,21 @@
 <odoo>
-    <!-- منع إنشاء عملاء جدد داخل Sale Order -->
+    <!-- تعديل شاشة أمر البيع -->
     <record id="view_sale_order_partner_no_create" model="ir.ui.view">
         <field name="name">sale.order.form.no.create.partner</field>
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
+
+            <!-- منع إنشاء وتعديل من الـ dropdown -->
             <xpath expr="//field[@name='partner_id']" position="attributes">
                 <attribute name="options">{'no_create': True, 'no_create_edit': True}</attribute>
             </xpath>
-        </field>
-    </record>
 
-    <!-- منع إنشاء منتجات جديدة داخل order lines -->
-    <record id="view_sale_order_line_no_create_product" model="ir.ui.view">
-        <field name="name">sale.order.line.no.create.product</field>
-        <field name="model">sale.order</field>
-        <field name="inherit_id" ref="sale.view_order_form"/>
-        <field name="arch" type="xml">
-            <xpath expr="//field[@name='order_line']//field[@name='product_id']" position="attributes">
-                <attribute name="options">{'no_create': True, 'no_create_edit': True}</attribute>
+            <!-- تمرير context يمنع زر New عند فتح نافذة العملاء -->
+            <xpath expr="//field[@name='partner_id']" position="attributes">
+                <attribute name="context">{'create': False, 'edit': False, 'delete': False}</attribute>
             </xpath>
+
         </field>
     </record>
 </odoo>
