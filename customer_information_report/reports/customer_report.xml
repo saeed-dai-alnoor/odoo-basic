@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- تعريف الإجراء (Action) الذي يظهر في قائمة "طباعة" -->
+    <record id="action_report_customer_details" model="ir.actions.report">
+        <field name="name">بطاقة معلومات العميل</field>
+        <field name="model">res.partner</field>
+        <field name="report_type">qweb-pdf</field>
+        <!-- تم تصحيح اسم الوحدة هنا -->
+        <field name="report_name">customer_information_report.report_customer_details_template</field>
+        <field name="report_file">customer_information_report.report_customer_details_template</field>
+        <field name="print_report_name">f'بطاقة_العميل_{object.name}'</field>
+        <field name="binding_model_id" ref="base.model_res_partner"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>
